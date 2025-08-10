@@ -1,0 +1,18 @@
+const app = require("./app");
+const { PORT } = require("./utils/config");
+const db = require("./db/DB");
+
+const server = async () => {
+  try {
+    await db.authenticate();
+    console.log("db conectada");
+
+    app.listen(PORT, () => {
+      console.log("SERVER LAVANTADO EN PUERTO: ", PORT);
+    });
+  } catch (error) {
+    console.log("ERROR AL LAVANTAR EL SERVIDOR", error);
+  }
+};
+
+server();
