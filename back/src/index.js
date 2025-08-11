@@ -4,7 +4,7 @@ const db = require("./db/DB");
 
 const server = async () => {
   try {
-    await db.authenticate();
+    await db.sync();
     console.log("db conectada");
 
     app.listen(PORT, () => {
