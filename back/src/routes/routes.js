@@ -4,6 +4,7 @@ const {
   getReservaController,
   //POST
   postMesaContreller,
+  postReservaController,
 } = require("../controller/index.controller");
 
 const router = Router();
@@ -13,5 +14,6 @@ router.get("/reserva", getReservaController);
 
 //POST
 router.post("/postmesa", postMesaContreller);
+router.post("/postreserva", postReservaController);
 
 module.exports = router;

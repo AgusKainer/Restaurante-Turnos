@@ -9,6 +9,7 @@ const Mesa = db.define("Mesa", {
   },
   numero_mesa: {
     type: DataTypes.INTEGER,
+    unique: true,
   },
   capacidad: {
     type: DataTypes.INTEGER,

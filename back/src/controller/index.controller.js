@@ -3,9 +3,11 @@ const getReservaController = require("./restaurante/GET/getReserva.controller");
 
 //POST
 const postMesaContreller = require("./restaurante/POST/postMesa.controller");
+const postReservaController = require("./restaurante/POST/postReserva.controller");
 
 module.exports = {
   getMesaController,
   getReservaController,
   postMesaContreller,
+  postReservaController,
 };
