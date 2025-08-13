@@ -1,7 +1,7 @@
 const { Mesa } = require("../../../models/index.model");
 
 const getMesaServices = async () => {
-  return Mesa.findAll();
+  return await Mesa.findAll();
 };
 
 module.exports = getMesaServices;
