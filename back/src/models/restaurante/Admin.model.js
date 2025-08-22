@@ -13,6 +13,10 @@ const Admin = db.define("Admin", {
   password: {
     type: DataTypes.STRING,
   },
+  rol: {
+    type: DataTypes.STRING,
+    defaultValue: "admin",
+  },
 });
 
 module.exports = Admin;

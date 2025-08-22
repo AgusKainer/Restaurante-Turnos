@@ -5,10 +5,12 @@ const getReservaServices = require("./restaurante/GET/getReserva.service");
 
 const postMesaServices = require("./restaurante/POST/postMesa.service");
 const postReservServices = require("./restaurante/POST/postReserva.service");
-
+// ADMIN
+const postAdminServices = require("./restaurante/POST/postAdmin.service");
 module.exports = {
   getMesaServices,
   getReservaServices,
   postMesaServices,
   postReservServices,
+  postAdminServices,
 };

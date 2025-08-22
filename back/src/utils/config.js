@@ -5,6 +5,7 @@ const DB_NAME = process.env.DB_NAME;
 const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 const DB_HOST = process.env.DB_HOST;
+const SECRET = process.env.SECRET;
 
 console.log(DB_NAME);
 
@@ -14,4 +15,5 @@ module.exports = {
   DB_NAME,
   DB_PASS,
   DB_USER,
+  SECRET,
 };
