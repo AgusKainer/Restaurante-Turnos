@@ -7,6 +7,7 @@ const {
   postReservaController,
   //ADMIN
   postAdminController,
+  loginAdminController,
 } = require("../controller/index.controller");
 
 const router = Router();
@@ -18,6 +19,7 @@ router.get("/reserva", getReservaController);
 router.post("/postmesa", postMesaContreller);
 router.post("/postreserva", postReservaController);
 //ADMIN
-router.post("/admin", postAdminController);
+router.post("/register", postAdminController);
+router.post("/login", loginAdminController);
 
 module.exports = router;

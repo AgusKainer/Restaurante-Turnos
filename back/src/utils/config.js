@@ -7,7 +7,7 @@ const DB_PASS = process.env.DB_PASS;
 const DB_HOST = process.env.DB_HOST;
 const SECRET = process.env.SECRET;
 
-console.log(DB_NAME);
+console.log(SECRET);
 
 module.exports = {
   PORT,

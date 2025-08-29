@@ -7,6 +7,7 @@ const postAdminServices = async ({ usuario, password }) => {
     usuario,
     password: hash,
   });
+
   return admin;
 };
 
