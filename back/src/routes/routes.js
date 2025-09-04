@@ -10,6 +10,8 @@ const {
   loginAdminController,
   //EMAI
   sendMailController,
+  //DELETE
+  deleteReservaController,
 } = require("../controller/index.controller");
 
 const isAdmin = require("../middleware/isAdmin");
@@ -28,4 +30,6 @@ router.post("/email/:id", sendMailController);
 router.post("/register", postAdminController);
 router.post("/login", loginAdminController);
 
+//DELETE
+router.delete("/eliminar/:id", isAdmin("admin"), deleteReservaController);
 module.exports = router;
