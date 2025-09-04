@@ -6,8 +6,10 @@ const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 const DB_HOST = process.env.DB_HOST;
 const SECRET = process.env.SECRET;
+const PASS_APP = process.env.PASS_APP;
+const EMAIL = process.env.EMAIL;
 
-console.log(SECRET);
+console.log(PASS_APP, EMAIL);
 
 module.exports = {
   PORT,
@@ -16,4 +18,6 @@ module.exports = {
   DB_PASS,
   DB_USER,
   SECRET,
+  PASS_APP,
+  EMAIL,
 };

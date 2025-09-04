@@ -8,6 +8,8 @@ const {
   //ADMIN
   postAdminController,
   loginAdminController,
+  //EMAI
+  sendMailController,
 } = require("../controller/index.controller");
 
 const isAdmin = require("../middleware/isAdmin");
@@ -19,7 +21,9 @@ router.get("/reserva", isAdmin("admin"), getReservaController);
 
 //POST
 router.post("/postmesa", isAdmin("admin"), postMesaContreller);
-router.post("/postreserva", isAdmin("admin"), postReservaController);
+router.post("/postreserva", postReservaController);
+//MEAIL
+router.post("/email/:id", sendMailController);
 //ADMIN
 router.post("/register", postAdminController);
 router.post("/login", loginAdminController);

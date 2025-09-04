@@ -7,6 +7,9 @@ const postReservaController = require("./restaurante/POST/postReserva.controller
 // ADMIN
 const postAdminController = require("./restaurante/POST/postAdmin.controller");
 const loginAdminController = require("./restaurante/POST/loginAdmin.controller");
+
+// EMAIL
+const sendMailController = require("./restaurante/POST/email.controller");
 module.exports = {
   getMesaController,
   getReservaController,
@@ -14,4 +17,5 @@ module.exports = {
   postReservaController,
   postAdminController,
   loginAdminController,
+  sendMailController,
 };
