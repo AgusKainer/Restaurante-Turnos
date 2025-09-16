@@ -12,6 +12,8 @@ const {
   sendMailController,
   //DELETE
   deleteReservaController,
+  //PUT
+  putReservaController,
 } = require("../controller/index.controller");
 
 const isAdmin = require("../middleware/isAdmin");
@@ -23,7 +25,7 @@ router.get("/reserva", isAdmin("admin"), getReservaController);
 
 //POST
 router.post("/postmesa", isAdmin("admin"), postMesaContreller);
-router.post("/postreserva", postReservaController);
+router.post("/postreserva", isAdmin("admin"), postReservaController);
 //MEAIL
 router.post("/email/:id", sendMailController);
 //ADMIN
@@ -32,4 +34,8 @@ router.post("/login", loginAdminController);
 
 //DELETE
 router.delete("/eliminar/:id", isAdmin("admin"), deleteReservaController);
+
+//PUT
+router.put("/actualizar/:id", isAdmin("admin"), putReservaController);
+
 module.exports = router;

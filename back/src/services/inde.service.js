@@ -14,6 +14,9 @@ const email = require("./restaurante/POST/email.service");
 
 // DELETE
 const deleteReservaServices = require("./restaurante/DELETE/delete.service");
+
+//PUT
+const putservaService = require("./restaurante/PUT/putReserva.service");
 module.exports = {
   getMesaServices,
   getReservaServices,
@@ -23,4 +26,5 @@ module.exports = {
   loginAdminServices,
   email,
   deleteReservaServices,
+  putservaService,
 };
