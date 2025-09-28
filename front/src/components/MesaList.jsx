@@ -16,7 +16,7 @@ const MesaList = () => {
       {error && <p>ERROR: {error}</p>}
       {Array.isArray(mesa) &&
         mesa.map((m) => (
-          <div>
+          <div key={m.id}>
             <h3>Numero de mesa: {m.numero_mesa}</h3>
             <h3>Capacidad: {m.capacidad}</h3>
           </div>

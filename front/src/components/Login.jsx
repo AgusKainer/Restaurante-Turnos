@@ -1,8 +1,9 @@
 import useFormHook from "../customHooks/customForm";
 import loginAdmin from "../customHooks/login";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const formInitial = {
     usuario: "",
     password: "",
@@ -10,25 +11,18 @@ const Login = () => {
   const { form, onChange } = useFormHook(formInitial);
   const { usuario, password } = form;
 
-  console.log("usuarios front: ", typeof usuario);
-  console.log("password front: ", typeof password);
-
-  const [logueado, setLogueado] = useState(false);
-
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
       const success = await loginAdmin(usuario, password);
       if (success) {
         console.log("✅ Logueado correctamente");
-        setLogueado(true); // ✅ muestra pantalla en blanco
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("❌ Error de login:", error.message);
     }
   };
-
-  if (logueado) return <div style={{ background: "#fff", height: "100vh" }} />;
 
   return (
     <div>
