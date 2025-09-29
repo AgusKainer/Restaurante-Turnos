@@ -1,9 +1,12 @@
 import useFormHook from "../customHooks/customForm";
 import loginAdmin from "../customHooks/login";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const formInitial = {
     usuario: "",
     password: "",
@@ -17,6 +20,7 @@ const Login = () => {
       const success = await loginAdmin(usuario, password);
       if (success) {
         console.log("✅ Logueado correctamente");
+        dispatch(login());
         navigate("/dashboard");
       }
     } catch (error) {

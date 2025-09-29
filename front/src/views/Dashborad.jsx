@@ -1,9 +1,11 @@
 import { Link, Outlet } from "react-router";
+import LogOut from "../components/LogOut";
 
 const Dashborad = () => {
   return (
     <div>
       Dashborad
+      <LogOut />
       <Link to="mesa">
         <button>Mesas</button>
       </Link>
