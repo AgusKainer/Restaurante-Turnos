@@ -6,6 +6,7 @@ import MesaList from "./components/MesaList";
 import Login from "./components/Login";
 import ReservaList from "./components/ReservaList";
 import ProtectedRoute from "./components/ProtectedRouter";
+import MesaForm from "./components/MesaForm";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="mesa" element={<MesaList />} />
           <Route path="reserva" element={<ReservaList />} />
+          <Route path="postmesa" element={<MesaForm />} />
         </Route>
       </Routes>
     </>

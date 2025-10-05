@@ -12,6 +12,9 @@ const Dashborad = () => {
       <Link to="reserva">
         <button>Reservas</button>
       </Link>
+      <Link to="postmesa">
+        <button>Crear Mesas</button>
+      </Link>
       <section>
         <Outlet />
       </section>
