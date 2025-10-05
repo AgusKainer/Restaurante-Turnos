@@ -17,6 +17,7 @@ const ReservaList = () => {
       ReservaList
       {loading && <p>Cargando....</p>}
       {error && <p>ERROR: ${error}</p>}
+      {console.log("RESERVA:", reserva)}
       {reserva.map((r) => (
         <div key={r.id}>
           <h3>Nombre: {r.nombre}</h3>

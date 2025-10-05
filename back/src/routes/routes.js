@@ -20,12 +20,12 @@ const isAdmin = require("../middleware/isAdmin");
 
 const router = Router();
 
-router.get("/mesa", isAdmin("admin"), getMesaController);
+router.get("/mesa", getMesaController);
 router.get("/reserva", isAdmin("admin"), getReservaController);
 
 //POST
 router.post("/postmesa", isAdmin("admin"), postMesaContreller);
-router.post("/postreserva", isAdmin("admin"), postReservaController);
+router.post("/postreserva", postReservaController);
 //MEAIL
 router.post("/email/:id", sendMailController);
 //ADMIN

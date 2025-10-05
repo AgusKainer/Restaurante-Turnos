@@ -1,4 +1,5 @@
 import NavBar from "../components/NavBar";
+import ReservaForm from "../components/ReservaForm";
 const Home = () => {
   return (
     <div>
@@ -6,6 +7,7 @@ const Home = () => {
       <section>
         <NavBar />
       </section>
+      <ReservaForm />
     </div>
   );
 };
