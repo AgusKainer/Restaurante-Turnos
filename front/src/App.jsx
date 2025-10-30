@@ -6,11 +6,10 @@ import MesaList from "./components/MesaList";
 import Login from "./components/Login";
 import ReservaList from "./components/ReservaList";
 import ProtectedRoute from "./components/ProtectedRouter";
-<<<<<<< HEAD
+
 import MesaForm from "./components/MesaForm";
-=======
+
 import FormReserva from "./components/ReservaForm";
->>>>>>> pruebas
 
 function App() {
   return (

@@ -13,30 +13,63 @@ const ReservaList = () => {
     dispatch(fetchReserva());
   }, []);
   return (
-    <div>
-      ReservaList
-      {loading && <p>Cargando....</p>}
-      {error && <p>ERROR: ${error}</p>}
-      {console.log("RESERVA:", reserva)}
+    <div className="space-y-6">
+      <h2 className="text-xl font-semibold text-white">Lista de Reservas</h2>
+
+      {loading && <p className="text-gray-400">Cargando...</p>}
+      {error && <p className="text-red-500">ERROR: {error}</p>}
+
       {reserva.map((r) => (
-        <div key={r.id}>
-          <h3>Nombre: {r.nombre}</h3>
-          <h3>Fecha: {r.fecha}</h3>
-          <h3>Evento: {r.evento}</h3>
-          <h3>Ubicacion: {r.ubicacion}</h3>
-          <h3>Reserva creada: {r.createdAt}</h3>
+        <div
+          key={r.id}
+          className="rounded-xl bg-white/5 p-6 ring-1 ring-white/10 shadow-md space-y-4"
+        >
+          <div className="space-y-1">
+            <h3 className="text-white text-base font-semibold">
+              Nombre:{" "}
+              <span className="font-normal text-gray-300">{r.nombre}</span>
+            </h3>
+            <h3 className="text-white text-base font-semibold">
+              Fecha:{" "}
+              <span className="font-normal text-gray-300">{r.fecha}</span>
+            </h3>
+            <h3 className="text-white text-base font-semibold">
+              Evento:{" "}
+              <span className="font-normal text-gray-300">{r.evento}</span>
+            </h3>
+            <h3 className="text-white text-base font-semibold">
+              Ubicación:{" "}
+              <span className="font-normal text-gray-300">{r.ubicacion}</span>
+            </h3>
+            <h3 className="text-white text-base font-semibold">
+              Reserva creada:{" "}
+              <span className="font-normal text-gray-300">{r.createdAt}</span>
+            </h3>
+          </div>
+
           {r.Mesas.length > 0 ? (
-            <div>
-              <h2>Mesas Reservas:</h2>
+            <div className="mt-4 space-y-2">
+              <h4 className="text-indigo-400 font-semibold">
+                Mesas Reservadas:
+              </h4>
               {r.Mesas.map((mesa) => (
-                <div key={mesa.id}>
-                  <h3>Numero de mesa: {mesa.numero_mesa}</h3>
-                  <h3>Capacidad: {mesa.capacidad}</h3>
+                <div
+                  key={mesa.id}
+                  className="rounded-md bg-white/10 px-4 py-2 ring-1 ring-white/10"
+                >
+                  <p className="text-sm text-white">
+                    Número de mesa:{" "}
+                    <span className="text-gray-300">{mesa.numero_mesa}</span>
+                  </p>
+                  <p className="text-sm text-white">
+                    Capacidad:{" "}
+                    <span className="text-gray-300">{mesa.capacidad}</span>
+                  </p>
                 </div>
               ))}
             </div>
           ) : (
-            <p>No hay mesas reservadas</p>
+            <p className="text-sm text-gray-400">No hay mesas reservadas</p>
           )}
         </div>
       ))}

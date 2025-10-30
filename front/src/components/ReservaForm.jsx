@@ -1,85 +1,3 @@
-// const FormReserva = () => {
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <div>
-//         <label htmlFor="nombre">Nombre</label>
-//         <input
-//           type="email"
-//           name="nombre"
-//           id="nombre"
-//           value={form.nombre}
-//           onChange={onChange}
-//           required
-//         />
-//       </div>
-
-//       <div>
-//         <label htmlFor="fecha">Fecha</label>
-//         <input
-//           type="date"
-//           name="fecha"
-//           id="fecha"
-//           value={form.fecha}
-//           onChange={onChange}
-//           required
-//         />
-//       </div>
-
-//       <div>
-//         <label htmlFor="evento">Evento</label>
-//         <select
-//           name="evento"
-//           id="evento"
-//           value={form.evento}
-//           onChange={onChange}
-//           required
-//         >
-//           <option value="">Seleccionar</option>
-//           <option value="almuerzo">Almuerzo</option>
-//           <option value="cena">Cena</option>
-//         </select>
-//       </div>
-
-//       <div>
-//         <label htmlFor="ubicacion">Ubicación</label>
-//         <select
-//           name="ubicacion"
-//           id="ubicacion"
-//           value={form.ubicacion}
-//           onChange={onChange}
-//           required
-//         >
-//           <option value="">Seleccionar</option>
-//           <option value="interior">Interior</option>
-//           <option value="exterior">Exterior</option>
-//         </select>
-//       </div>
-
-//       <div>
-//         {loading && <p>CARGANDO....</p>}
-//         {error && <p>ERROR: {error}</p>}
-//         {console.log(mesa)}
-//         {mesa.map((m) => (
-//           <div key={m.id}>
-//             <label>
-//               <input
-//                 type="checkbox"
-//                 name="numero_mesa"
-//                 value={m.numero_mesa}
-//                 onChange={onChange}
-//               />
-//               Mesa {m.numero_mesa} - Capacidad: {m.capacidad}
-//             </label>
-//           </div>
-//         ))}
-//       </div>
-
-//       <button type="submit">Reservar</button>
-//     </form>
-//   );
-// };
-
 import useFormHook from "../customHooks/customForm.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -112,8 +30,15 @@ export default function FormReserva() {
   console.log(form);
 
   return (
-    <div className="bg-gray-900 px-6 py-12 rounded-xl shadow-lg max-w-lg mx-auto isolate">
-      <div className="mx-auto max-w-2xl text-center">
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 py-12 flex flex-col items-center justify-center"
+      style={{
+        backgroundImage: "url('/assets/images/alforno.png')",
+        backgroundBlendMode: "overlay",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+      }}
+    >
+      <div className="px-6 py-12 rounded-xl shadow-lg max-w-lg w-full isolate">
         <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           Formulario de Reserva
         </h2>
