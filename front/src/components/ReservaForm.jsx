@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchReservaPost,
   fetchMesas,
+  fetchEmail,
+  fetchReserva,
 } from "../redux/asyncThunk/createAsyncThunk.js";
 
 import { useEffect } from "react";
@@ -10,6 +12,7 @@ import { useEffect } from "react";
 export default function FormReserva() {
   const dispatch = useDispatch();
   const { list: mesa, loading, error } = useSelector((state) => state.mesa);
+  const { list: reserva } = useSelector((state) => state.reserva);
 
   const { form, onChange } = useFormHook({
     nombre: "",
@@ -19,13 +22,34 @@ export default function FormReserva() {
     numero_mesa: [],
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(fetchReservaPost(form));
+    try {
+      // 1. Crear la reserva
+      const result = await dispatch(fetchReservaPost(form)).unwrap();
+      console.log("Respuesta del backend:", result);
+
+      // 2. Extraer el ID de la reserva desde la relación
+      const reservaId = Array.isArray(result) ? result[0]?.ReservaId : null;
+
+      if (!reservaId) {
+        console.error("No se pudo obtener el ID de la reserva");
+        alert("La reserva fue creada pero no se pudo enviar el correo.");
+        return;
+      }
+
+      // 3. Enviar el correo con el ID de la reserva
+      await dispatch(fetchEmail({ id: reservaId }));
+      alert("Reserva creada y correo enviado correctamente");
+    } catch (error) {
+      console.error("Error en la reserva o envío de correo:", error);
+      alert("Hubo un error al crear la reserva o enviar el correo");
+    }
   };
 
   useEffect(() => {
     dispatch(fetchMesas());
+    dispatch(fetchReserva());
   }, []);
   console.log(form);
 
@@ -133,7 +157,7 @@ export default function FormReserva() {
                   >
                     <option value="">Seleccionar</option>
                     <option value="interior">Interior</option>
-                    <option value="exterior">Exterior</option>
+                    <option value="patio">Patio</option>
                     <option value="pasillo">Pasillo</option>
                   </select>
                 </div>

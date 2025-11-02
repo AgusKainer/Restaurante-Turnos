@@ -52,3 +52,16 @@ export const fetchReservaPost = createAsyncThunk(
     return await res.json();
   }
 );
+
+export const fetchEmail = createAsyncThunk("email/send", async ({ id }) => {
+  console.log("log de redux: ", id);
+
+  const res = await fetch(`${url}/email/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!res.ok) throw new Error("ERROR AL ENVIAR EL EMAIL DE RESERVA");
+  return await res.json();
+});
