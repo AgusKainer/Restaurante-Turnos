@@ -4,6 +4,30 @@ import fetchWithToken from "./fetchWithToken";
 const url = "http://localhost:1000";
 
 // GET DEL BACK
+export const fetchMesasDisponibles = createAsyncThunk(
+  "mesa/fetchDisponibles",
+  async ({ fecha, evento, ubicacion }, { rejectWithValue }) => {
+    try {
+      const query = new URLSearchParams({
+        fecha,
+        evento,
+        ubicacion,
+      }).toString();
+
+      const res = await fetch(`${url}/mesaDisponible?${query}`);
+
+      if (!res.ok) {
+        throw new Error("Error al obtener mesas disponibles");
+      }
+
+      const data = await res.json();
+      return data; // array de mesas disponibles
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const fetchMesas = createAsyncThunk("mesas/fetchMesas", async () => {
   const res = await fetch(`${url}/mesa`, {
     method: "GET",
