@@ -280,7 +280,7 @@ export default function FormReserva() {
               htmlFor="nombre"
               className="block text-sm font-semibold text-white tracking-wide"
             >
-              Nombre
+              Correo
             </label>
             <div className="mt-2.5">
               <input
@@ -328,9 +328,24 @@ export default function FormReserva() {
                 onChange={onChange}
                 className="w-full rounded-md bg-white/5 px-3.5 py-2 text-white ring-1 ring-white/10 focus:ring-2 focus:ring-indigo-500"
               >
-                <option value="">Seleccionar</option>
-                <option value="almuerzo">Almuerzo</option>
-                <option value="cena">Cena</option>
+                <option value="" className="text-black bg-white">
+                  Seleccionar
+                </option>
+                <option value="almuerzo" className="text-black bg-white">
+                  Almuerzo
+                </option>
+                <option value="cena" className="text-black bg-white">
+                  Cena
+                </option>
+                <option value="cumpleaños" className="text-black bg-white">
+                  Cumpleaños
+                </option>
+                <option value="aniversario" className="text-black bg-white">
+                  Aniversario
+                </option>
+                <option value="otro" className="text-black bg-white">
+                  Otro
+                </option>
               </select>
             </div>
           </div>
@@ -350,10 +365,18 @@ export default function FormReserva() {
                 onChange={onChange}
                 className="w-full rounded-md bg-white/5 px-3.5 py-2 text-white ring-1 ring-white/10 focus:ring-2 focus:ring-indigo-500"
               >
-                <option value="">Seleccionar</option>
-                <option value="interior">Interior</option>
-                <option value="patio">Patio</option>
-                <option value="pasillo">Pasillo</option>
+                <option value="" className="text-black bg-white">
+                  Seleccionar
+                </option>
+                <option value="interior" className="text-black bg-white">
+                  Interior
+                </option>
+                <option value="patio" className="text-black bg-white">
+                  Patio
+                </option>
+                <option value="pasillo" className="text-black bg-white">
+                  Pasillo
+                </option>
               </select>
             </div>
           </div>
