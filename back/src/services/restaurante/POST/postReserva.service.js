@@ -12,6 +12,24 @@ const postReservServices = async ({
   if (mesa.length !== numero_mesa.length) {
     throw new Error("Uno o mas mesas no existen");
   }
+
+  // Validación de disponibilidad
+  for (const m of mesa) {
+    const reservasOcupadas = await m.getReservas({
+      where: {
+        fecha,
+        evento,
+        ubicacion,
+      },
+    });
+
+    if (reservasOcupadas.length > 0) {
+      throw new Error(
+        `La mesa ${m.numero_mesa} ya está ocupada para ese evento, fecha y ubicación.`
+      );
+    }
+  }
+
   const reserva = await Reserva.create({
     nombre,
     fecha,

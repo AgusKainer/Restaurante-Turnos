@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   getMesaController,
   getReservaController,
+  getMesasDisponiblesController,
   //POST
   postMesaContreller,
   postReservaController,
@@ -21,6 +22,7 @@ const isAdmin = require("../middleware/isAdmin");
 const router = Router();
 
 router.get("/mesa", getMesaController);
+router.get("/mesaDisponible", getMesasDisponiblesController);
 router.get("/reserva", isAdmin("admin"), getReservaController);
 
 //POST

@@ -1,5 +1,6 @@
 const getMesaController = require("./restaurante/GET/getMesa.controller");
 const getReservaController = require("./restaurante/GET/getReserva.controller");
+const getMesasDisponiblesController = require("./restaurante/GET/getMesasDisponible.controller");
 
 //POST
 const postMesaContreller = require("./restaurante/POST/postMesa.controller");
@@ -17,6 +18,7 @@ const deleteReservaController = require("./restaurante/DELETE/delete.controller"
 // put
 const putReservaController = require("./restaurante/PUT/putReserva.controller");
 module.exports = {
+  getMesasDisponiblesController,
   getMesaController,
   getReservaController,
   postMesaContreller,
