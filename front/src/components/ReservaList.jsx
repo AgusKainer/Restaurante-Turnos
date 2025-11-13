@@ -4,14 +4,15 @@ import { fetchReserva } from "../redux/asyncThunk/createAsyncThunk";
 const ReservaList = () => {
   const dispatch = useDispatch();
   const {
-    list: reserva,
+    data: reserva,
     loading,
     error,
-  } = useSelector((state) => state.reserva);
+  } = useSelector((state) => state.reservaFilter);
+  console.log("QUE VIENE DEL ESTADO: ", reserva);
 
-  useEffect(() => {
-    dispatch(fetchReserva());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchReserva());
+  // }, []);
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-semibold text-white">Lista de Reservas</h2>

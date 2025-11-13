@@ -50,6 +50,35 @@ export const fetchReserva = createAsyncThunk(
   }
 );
 
+// GET FILTER
+export const fetchReservasFiltradas = createAsyncThunk(
+  "reservas/fetchReservasFiltradas",
+  async (filtros, { rejectWithValue }) => {
+    try {
+      const query = new URLSearchParams(filtros).toString();
+      const endpoint = query
+        ? `${url}/filterReserva?${query}`
+        : `${url}/filterReserva`;
+      console.log("desde el redux que envio al back: ", endpoint);
+
+      const res = await fetch(endpoint, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("RESPUESTA DE REDUX AL FILTRO: ", res);
+
+      if (!res.ok) throw new Error("Error al obtener reservas");
+      const data = await res.json();
+      console.log("RES.JSON DEL REDUX: ", data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 // POST DEL BACK
 export const fetchMesaPost = createAsyncThunk(
   "mesaPost/fetchMesaPost",
