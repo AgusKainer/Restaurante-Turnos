@@ -118,3 +118,26 @@ export const fetchEmail = createAsyncThunk("email/send", async ({ id }) => {
   if (!res.ok) throw new Error("ERROR AL ENVIAR EL EMAIL DE RESERVA");
   return await res.json();
 });
+
+// DELETE
+
+export const deleteReserva = createAsyncThunk("eliminar/delete", async (id) => {
+  const response = await fetchWithToken(`${url}/eliminar/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok)
+    throw new Error("ERROR AL ELIMINAR LA RESERVA O YA SE ELIMINO.");
+  return id;
+});
+
+// PUT EDITAR
+
+export const putReserva = createAsyncThunk("editar/put", async ({ id }) => {
+  const response = await fetchWithToken(`${url}/actualizar`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) throw new Error("ERROR AL ACTUALIZAR");
+  return await response.json();
+});
