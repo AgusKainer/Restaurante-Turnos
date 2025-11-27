@@ -131,13 +131,18 @@ export const deleteReserva = createAsyncThunk("eliminar/delete", async (id) => {
 });
 
 // PUT EDITAR
+export const putReserva = createAsyncThunk(
+  "editar/put",
+  async ({ id, data }) => {
+    console.log("PUT Reserva → id:", id, "data:", data);
 
-export const putReserva = createAsyncThunk("editar/put", async ({ id }) => {
-  const response = await fetchWithToken(`${url}/actualizar`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (!response.ok) throw new Error("ERROR AL ACTUALIZAR");
-  return await response.json();
-});
+    const result = await fetchWithToken(`${url}/actualizar/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    console.log("Response JSON:", result);
+    return result; // 👈 ya es el objeto JSON que devolvió tu backend
+  }
+);

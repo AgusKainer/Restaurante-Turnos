@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReserva } from "../redux/asyncThunk/createAsyncThunk";
+import { useNavigate } from "react-router";
 const ReservaList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     data: reserva,
     loading,
@@ -15,7 +17,7 @@ const ReservaList = () => {
   };
 
   const handlePut = (id) => {
-    navigate(`/editar/${id}`);
+    navigate(`/dashboard/editar/${id}`);
   };
 
   return (
@@ -55,7 +57,7 @@ const ReservaList = () => {
               </h3>
             </div>
 
-            {r.Mesas.length > 0 ? (
+            {Array.isArray(r.Mesas) && r.Mesas.length > 0 ? (
               <div className="mt-3 space-y-2">
                 <h4 className="text-indigo-400 text-sm font-semibold">
                   Mesas Reservadas:
