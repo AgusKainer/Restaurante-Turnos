@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import fetchWithToken from "./fetchWithToken";
 
-const url = "http://localhost:1000";
+const url = "http://localhost:3000";
 
 // GET DEL BACK
 export const fetchMesas = createAsyncThunk("mesas/fetchMesas", async () => {
@@ -23,7 +23,7 @@ export const fetchReserva = createAsyncThunk(
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
-  }
+  },
 );
 
 // POST DEL BACK
@@ -34,7 +34,7 @@ export const fetchMesaPost = createAsyncThunk(
       method: "POST",
       body: JSON.stringify(mesa),
     });
-  }
+  },
 );
 
 export const fetchReservaPost = createAsyncThunk(
@@ -50,5 +50,5 @@ export const fetchReservaPost = createAsyncThunk(
 
     if (!res.ok) throw new Error("Error al crear la reserva");
     return await res.json();
-  }
+  },
 );

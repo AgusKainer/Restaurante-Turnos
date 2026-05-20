@@ -22,7 +22,7 @@ const sendMailController = async (req, res) => {
     🗺️ Ubicaicon: ${ubicacion}.
     🪑 Mesa: ${mesasReservas}
 
-    Este correo es automatico, no debe de responder, cualquier inquietud enviar mensaje a nuestro numero: 989459
+    Este correo es automatico, no debe de responder, cualquier inquietud enviar mensaje a nuestro numero: 3756989459
     `;
 
     await email({ to: nombre, text: texto });
