@@ -1,5 +1,10 @@
 const getMesaServices = require("./restaurante/GET/getMesa.service");
 const getReservaServices = require("./restaurante/GET/getReserva.service");
+const getMesasDisponibleService = require("./restaurante/GET/getMesasDisponibles.service");
+
+//FILTER
+
+const getReservaFilterService = require("./restaurante/GET/getReservaFilter.service");
 
 // POST
 
@@ -18,8 +23,10 @@ const deleteReservaServices = require("./restaurante/DELETE/delete.service");
 //PUT
 const putservaService = require("./restaurante/PUT/putReserva.service");
 module.exports = {
+  getMesasDisponibleService,
   getMesaServices,
   getReservaServices,
+  getReservaFilterService,
   postMesaServices,
   postReservServices,
   postAdminServices,

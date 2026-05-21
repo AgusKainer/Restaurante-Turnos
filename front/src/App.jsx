@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRouter";
 import MesaForm from "./components/MesaForm";
 
 import FormReserva from "./components/ReservaForm";
+import EditarReserva from "./components/EditReservaForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="mesa" element={<MesaList />} />
           <Route path="reserva" element={<ReservaList />} />
           <Route path="postmesa" element={<MesaForm />} />
+          <Route path="editar/:id" element={<EditarReserva />} />
         </Route>
       </Routes>
     </>
